@@ -32,5 +32,3 @@ components
 # Unit Test Cases
 Included test cases for view model, repository and also mapper for testing for sorting and avoiding duplicate items.
 
-# Screenshot
-[<img src="screenshot_after_completion.png" width="250"/>](screenshot_after_completion.png)
