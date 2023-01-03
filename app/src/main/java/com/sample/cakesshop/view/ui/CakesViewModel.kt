@@ -27,12 +27,19 @@ class CakesViewModel @Inject constructor(
     private var _error = MutableLiveData<Boolean>()
     val error: LiveData<Boolean> = _error
 
+    init {
+        getToastItemsData()
+    }
+
     fun getToastItemsData() {
         viewModelScope.launch {
             getCakesUseCase().collectLatest { response ->
                 when (response) {
-                    is ApiResponse.Success -> _cakeItems.value =
-                        response.data.toItemPresentationList()
+                    is ApiResponse.Success -> {
+                        _cakeItems.value =
+                            response.data.toItemPresentationList()
+                        _error.value = false
+                    }
                     is ApiResponse.Error -> _error.value = true
                 }
             }

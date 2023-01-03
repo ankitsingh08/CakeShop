@@ -25,8 +25,6 @@ class CakesListActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        itemsViewModel.getToastItemsData()
-
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 this,
